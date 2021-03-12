@@ -1,6 +1,5 @@
-import { loginController } from './loginController.mjs';
-import { currentUser } from '../models/user_data.mjs';
-import { cardContainersView } from '../views/view.mjs';
+import { loginController } from '../../kanbanService/controllers/loginController.mjs';
+import { PATH } from '../../../config/path.mjs';
 
 export const authController = {
   init() {
@@ -33,12 +32,12 @@ export const authController = {
           return;
         }
 
-        window.location.href = 'http://localhost:5500/client/src/index.html';
+        window.location.href = PATH.main_page;
         return;
       }
 
       if (msg === 'SUCCESS') {
-        cardContainersView.loadIndexHTMLAfterLogin();
+        window.location.href = PATH.main_page;
         return;
       }
       if (msg === 'NO ID') {

@@ -1,4 +1,6 @@
+const cardModel = require('../models/card');
 const userModel = require('../models/user');
+const containerModel = require('../models/container');
 const password = require('../utils/password.js');
 
 const { createHashedPassword } = password;
@@ -70,6 +72,23 @@ const userService = {
     try {
       const { password, salt } = await createHashedPassword(newPw);
       await userModel.changeUserPw(password, salt, userId);
+    } catch (err) {
+      throw err;
+    }
+  },
+
+  async getUserDataForInit(userId) {
+    try {
+      const userData = await userModel.getUserData(userId);
+      const containers = await containerModel.getContainerData(userId, 'all');
+      for (const container of containers) {
+        const containerId = container.id;
+        const cardsOfContainer = await cardModel.getCardData(userId, containerId, 'all');
+        container.cards = cardsOfContainer;
+        //cardContainers.push(container);
+      }
+      const userDataForInit = { user: userData, card: containers };
+      return userDataForInit;
     } catch (err) {
       throw err;
     }

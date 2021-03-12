@@ -1,8 +1,7 @@
-import { Observation } from '../utils/observable.mjs';
+import { Observation } from '../subscribe/observable.mjs';
 import { cardContainerModel, cardModel } from '../models/model.mjs';
 import { cardContainersView } from '../views/view.mjs';
 import { cardContainers } from '../models/card_data.mjs';
-import { CardContainerController } from './controller.mjs';
 import { DBcontroller } from './DBcontroller.mjs';
 
 export const dragController = {

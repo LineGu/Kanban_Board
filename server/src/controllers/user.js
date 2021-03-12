@@ -6,15 +6,15 @@ const userService = require('../services/user');
 const { createMsg } = serverMassage;
 
 const userDataController = {
-  async getUserData(request, response) {
+  async getUserDataForInit(request, response) {
     const { userId } = request.session;
     const isLogined = userId === undefined ? false : true;
     if (!isLogined) {
-      response.status(StatusCode.OK).json(createMsg('INVALID USER'));
+      response.status(StatusCode.CLIENT_ERROR).json();
       return;
     }
     try {
-      const userData = await userService.getUserBaseData(userId);
+      const userData = await userService.getUserDataForInit(userId);
       const userDataJson = JSON.stringify(userData);
       response.status(StatusCode.OK).json(userDataJson);
     } catch (err) {

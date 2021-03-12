@@ -21,7 +21,7 @@ const containerModel = {
     try {
       const queryToFindContainerIndex = `SELECT containerIndex FROM container WHERE userId=${userId} AND containerId=${containerIdToDelete}`;
       const containerIndexResult = await pool.query(queryToFindContainerIndex);
-      const containerIndex = containerIndexResult[0][0].containerIndex;
+      const { containerIndex } = containerIndexResult[0][0];
 
       const queryToRefreshIndex = `update container set containerIndex = containerIndex - 1 where userId = ${userId} AND containerIndex > ${containerIndex}`;
       await pool.query(queryToRefreshIndex);

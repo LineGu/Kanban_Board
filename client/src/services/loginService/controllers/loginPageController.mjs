@@ -1,6 +1,7 @@
-import { DBcontroller } from './DBcontroller.mjs';
+import { DBcontroller } from '../../kanbanService/controllers/DBcontroller.mjs';
 import { googleLoginControll } from './googleLogin.js';
 import { kakaoLoginController } from './kakaoLogin.js';
+import { PATH } from '../../../config/path.mjs';
 
 export const loginPageController = {
   init() {
@@ -85,7 +86,7 @@ export const loginPageController = {
     closeModalButtonElems.forEach((closeModalButtonElem) => {
       closeModalButtonElem.addEventListener('click', (event) => {
         event.stopPropagation();
-        window.location.href = 'http://localhost:5500/client/src/loginPage/login.html';
+        window.location.href = PATH.login_page;
       });
     });
   },
@@ -240,7 +241,7 @@ export const loginPageController = {
       }
 
       alert('회원가입에 성공했습니다.');
-      window.location.href = 'http://localhost:5500/client/src/loginPage/login.html';
+      window.location.href = PATH.login_page;
       return;
     });
   },
@@ -436,7 +437,7 @@ export const loginPageController = {
           return;
         }
         alert('성공적으로 변경했습니다.');
-        window.location.href = 'http://localhost:5500/client/src/loginPage/login.html';
+        window.location.href = PATH.login_page;
       }
     });
   },
@@ -509,10 +510,10 @@ export const loginPageController = {
 
   attachLoginWithGoogleHandler() {
     const { googleLoginButtonElem } = this;
-    googleLoginButtonElem.addEventListener('click', (event) => {
-      googleLoginControll.init();
+    googleLoginButtonElem.addEventListener('click', async (event) => {
       event.stopPropagation();
       event.preventDefault();
+      await googleLoginControll.signIn();
     });
   },
 

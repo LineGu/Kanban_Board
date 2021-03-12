@@ -1,4 +1,5 @@
-import { loginPageController } from '../controllers/loginPageController.mjs';
+import { loginPageController } from './loginPageController.mjs';
+import { PATH } from '../../../config/path.mjs';
 
 export const kakaoLoginController = {
   async init() {
@@ -15,7 +16,7 @@ export const kakaoLoginController = {
     const resultOfGetUserLoginData = await kakaoLoginController.postUserData(userData);
 
     if (resultOfGetUserLoginData.msg === 'LOGIN SUCCESS') {
-      window.location.href = 'http://localhost:5500/client/src/index.html';
+      window.location.href = PATH.main_page;
       return;
     }
 

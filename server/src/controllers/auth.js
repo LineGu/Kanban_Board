@@ -38,7 +38,7 @@ const authController = {
     }
   },
 
-  tryLogout(request, response) {
+  logout(request, response) {
     request.session.destroy();
     response.clearCookie('loginCookie');
     response.status(StatusCode.OK).json(createMsg('LOGOUT SUCCESS'));

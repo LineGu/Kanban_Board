@@ -1,4 +1,4 @@
-import { Observation } from '../utils/observable.mjs';
+import { Observation } from '../subscribe/observable.mjs';
 import { cardContainers } from './card_data.mjs';
 import { currentUser } from './user_data.mjs';
 import {
