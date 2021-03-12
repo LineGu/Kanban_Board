@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/cssRest.css" />
+    <link rel="stylesheet" href="./styles/main/style.css" />
+    <title>trello-practice</title>
+  </head>
+
+  <body class="body">
+    <h1>KANBAN Board</h1>
+    <div class="menu-modal hidden">
+      <div class="top log-out" id="log-out">
+        <p>Log Out</p>
+      </div>
+      <div class="delete-container" id="${container.id}">
+        <p>Delete container</p>
+      </div>
+    </div>
+
+    <section class="main-container">
+      <div class="main-container-top">
+        <div class="main-container-top-left">
+          <strong>KANBAN board 프로젝트</strong>
+          <p class="update-notify-box">update ? minute ago</p>
+        </div>
+        <div class="menu-box">
+          <div class="main-container-top-right">
+            <img src="./assets/find.png" class="find-img" alt="Magnifier img" />
+            <input class="filter-cards" placeholder="filter-cards" />
+          </div>
+          <img src="./assets/menu.png" class="menu-img" alt="menu" />
+          <p class="menu">Menu</p>
+          <img src="./assets/user.png" class="user-img" alt="user img" />
+          <strong id="user-name"></strong>
+        </div>
+      </div>
+
+      <div class="main-container-bottom">
+        <section class="card-container" draggable="true" id="To do">
+          <div class="card-box">
+            <div class="card-box-header"></div>
+          </div>
+        </section>
+
+        <section class="add-card-container">
+          <strong>+ Add column</strong>
+        </section>
+      </div>
+    </section>
+    <div class="modal hidden" id="adding-container-modal">
+      <div class="bg"></div>
+      <div class="modalBox">
+        <div class="modal-top">
+          <p>Add a card container</p>
+          <p class="modal-close">X</p>
+        </div>
+        <div class="modal-botton">
+          <p>Card container name</p>
+          <input class="new-container-name" placeholder="Enter a container name" />
+          <button class="confirm-button">Create Column</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./app.js" defer></script>
+  </body>
+</html>
