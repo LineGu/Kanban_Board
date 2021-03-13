@@ -1,5 +1,5 @@
-import { domController } from './dom/index.mjs';
-import { PATH } from '../../../config/path.mjs';
+import { domController } from '../dom/index.mjs';
+import { PATH } from '../../../../config/path.mjs';
 
 export const googleLoginControll = {
   async init() {

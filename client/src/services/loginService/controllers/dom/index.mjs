@@ -1,10 +1,8 @@
-import { googleLoginControll } from '../googleLogin.js';
-import { kakaoLoginController } from '../kakaoLogin.js';
 import { PATH } from '../../../../config/path.mjs';
 import { visualController } from '../../../../utils/visualController.mjs';
 import { formChecker } from './formChecker.mjs';
 import { debounce } from '../../../../utils/debounce.mjs';
-import { userController } from '../user/user.mjs';
+import { userController } from '../user/index.mjs';
 
 const { show, go } = visualController;
 
@@ -117,23 +115,6 @@ export const domController = {
     findingPwModalElem.classList.add('bigger');
     buttonToFindPw.innerText = '바꾸기';
     buttonToFindPw.classList.add('change-btn');
-  },
-
-  attachLoginWithGoogleHandler() {
-    const { googleLoginButtonElem } = this;
-    googleLoginButtonElem.addEventListener('click', async (event) => {
-      event.preventDefault();
-      await googleLoginControll.signIn();
-    });
-  },
-
-  attachLoginWithKakaoHandler() {
-    const { kakaoLoginButtonElem } = this;
-    kakaoLoginButtonElem.addEventListener('click', (event) => {
-      kakaoLoginController.init();
-      event.stopPropagation();
-      event.preventDefault();
-    });
   },
 
   attachSignUpForLocalHanler() {

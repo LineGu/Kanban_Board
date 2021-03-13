@@ -1,4 +1,3 @@
-import { formChecker } from './formChecker.mjs';
 import { domController } from './index.mjs';
 
 export const domControllerInitializer = {
@@ -31,8 +30,6 @@ export const domControllerInitializer = {
     domController.newPwModalElem = document.querySelector('.new-pw-box');
     domController.newPwInputElem = document.querySelector('#new-pw');
     domController.newPwRepeatInputElem = document.querySelector('#new-pw-repeat');
-    domController.googleLoginButtonElem = document.querySelector('#google');
-    domController.kakaoLoginButtonElem = document.querySelector('#kakao');
     domController.showingInvalidFormPhone = document.querySelector('.invalid-phone');
     domController.showingValidFormPhone = document.querySelector('.valid-phone');
     domController.showingStandardFormPhone = document.querySelector('.phone-explan');
@@ -49,7 +46,5 @@ export const domControllerInitializer = {
     domController.attachOpenModalToFindPw();
     domController.attachFindIdHandler();
     domController.attachFindPwHandler();
-    domController.attachLoginWithGoogleHandler();
-    domController.attachLoginWithKakaoHandler();
   },
 };

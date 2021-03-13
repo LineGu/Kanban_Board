@@ -1,10 +1,12 @@
-import { authController } from './controllers/authController.mjs';
+import { authInitiallizer } from './controllers/auth/init.mjs';
 import { domControllerInitializer } from './controllers/dom/init.mjs';
-import { googleLoginControll } from './controllers/googleLogin.js';
+import { googleLoginControll } from './controllers/auth/googleLogin.js';
+import { loginServiceView } from './views/index.mjs';
 
 const initLoginPage = async () => {
-  authController.init();
+  authInitiallizer.init();
   domControllerInitializer.init();
+  loginServiceView.init();
   await googleLoginControll.init();
 };
 
