@@ -1,4 +1,4 @@
-import { loginPageController } from './loginPageController.mjs';
+import { domController } from './dom/index.mjs';
 import { PATH } from '../../../config/path.mjs';
 
 export const kakaoLoginController = {
@@ -73,24 +73,21 @@ export const kakaoLoginController = {
       .then((res) => JSON.parse(res))
       .catch((err) => alert(err));
 
-    const userIdOfDb = await loginPageController.getUserIdOfDataBaseTable(
-      userData.name,
-      userData.id,
-    );
+    const userIdOfDb = await domController.getUserIdOfDataBaseTable(userData.name, userData.id);
 
     if (userIdOfDb === 'FAIL') {
       console.log('fail to get userID');
       return;
     }
 
-    const resultOfCreatContainer = await loginPageController.createDefaultContainer(userIdOfDb);
+    const resultOfCreatContainer = await domController.createDefaultContainer(userIdOfDb);
 
     if (resultOfCreatContainer === 'FAIL') {
       console.log('fail to create container');
       return;
     }
 
-    const resultOfCreatCard = await loginPageController.createDefaultCard(userIdOfDb);
+    const resultOfCreatCard = await domController.createDefaultCard(userIdOfDb);
 
     if (resultOfCreatCard === 'FAIL') {
       console.log('fail to create card');

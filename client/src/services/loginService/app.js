@@ -1,10 +1,10 @@
 import { authController } from './controllers/authController.mjs';
-import { loginPageController } from './controllers/loginPageController.mjs';
+import { domControllerInitializer } from './controllers/dom/init.mjs';
 import { googleLoginControll } from './controllers/googleLogin.js';
 
 const initLoginPage = async () => {
   authController.init();
-  loginPageController.init();
+  domControllerInitializer.init();
   await googleLoginControll.init();
 };
 

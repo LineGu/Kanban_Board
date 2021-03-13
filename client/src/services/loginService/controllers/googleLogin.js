@@ -1,4 +1,4 @@
-import { loginPageController } from './loginPageController.mjs';
+import { domController } from './dom/index.mjs';
 import { PATH } from '../../../config/path.mjs';
 
 export const googleLoginControll = {
@@ -91,21 +91,21 @@ export const googleLoginControll = {
       .then((res) => JSON.parse(res))
       .catch((err) => alert(err));
 
-    const userIdOfDb = await loginPageController.getUserIdOfDataBaseTable(userName, userId);
+    const userIdOfDb = await domController.getUserIdOfDataBaseTable(userName, userId);
 
     if (userIdOfDb === 'FAIL') {
       console.log('fail to get userID');
       return;
     }
 
-    const resultOfCreatContainer = await loginPageController.createDefaultContainer(userIdOfDb);
+    const resultOfCreatContainer = await domController.createDefaultContainer(userIdOfDb);
 
     if (resultOfCreatContainer === 'FAIL') {
       console.log('fail to create container');
       return;
     }
 
-    const resultOfCreatCard = await loginPageController.createDefaultCard(userIdOfDb);
+    const resultOfCreatCard = await domController.createDefaultCard(userIdOfDb);
 
     if (resultOfCreatCard === 'FAIL') {
       console.log('fail to create card');
