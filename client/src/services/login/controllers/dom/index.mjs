@@ -3,6 +3,7 @@ import { visualController } from '../../../../utils/visualController.mjs';
 import { formChecker } from './formChecker.mjs';
 import { debounce } from '../../../../utils/debounce.mjs';
 import { userController } from '../user/index.mjs';
+import { massage } from '../../../../config/massage.mjs';
 
 const { show, go } = visualController;
 
@@ -86,14 +87,14 @@ export const domController = {
     try {
       const userId = await userController.findUserForChangindPw();
       if (!userId) {
-        alert('일치하는 정보가 없습니다.');
+        alert(massage.invalid_data);
         return;
       }
       const isOpendModal = buttonToFindPw.classList.contains('change-btn');
       if (isOpendModal) {
         await userController.changeUserPw(userId);
         go(PATH.login_page);
-        alert('성공적으로 변경했습니다.'); // 뷰에 들어 갈거
+        alert(massage.success_change); // 뷰에 들어 갈거
         return;
       }
       domController.openChangeUserPwModal();
@@ -113,7 +114,7 @@ export const domController = {
   changeModalContentsToChangePw() {
     const { findingPwModalElem, buttonToFindPw } = this;
     findingPwModalElem.classList.add('bigger');
-    buttonToFindPw.innerText = '바꾸기';
+    buttonToFindPw.innerText = massage.change;
     buttonToFindPw.classList.add('change-btn');
   },
 

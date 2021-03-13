@@ -2,7 +2,7 @@ import { customFetch } from '../../../utils/fetch.mjs';
 import { PATH } from '../../../config/path.mjs';
 import { ServerStatus } from '../../../config/serverStatus.mjs';
 
-const { get, post, patch } = customFetch;
+const { post, patch } = customFetch;
 
 export const userModel = {
   async createUser(userData) {

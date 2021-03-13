@@ -2,6 +2,7 @@ import { userModel } from '../../models/user.mjs';
 import { domController } from '../dom/index.mjs';
 import { formChecker } from '../dom/formChecker.mjs';
 import { visualController } from '../../../../utils/visualController.mjs';
+import { massage } from '../../../../config/massage.mjs';
 
 const { go, hide, show } = visualController;
 
@@ -11,7 +12,7 @@ export const userController = {
       const { inputNameElem, inputIdElem, inputPwElem, inputPhoneNumberElem } = domController;
       const isValidForm = formChecker.checkValidForm();
       if (!isValidForm) {
-        alert('양식을 올바르게 입력하세요.');
+        alert(massage.invalid_form);
         return;
       }
       const userData = {
@@ -23,7 +24,7 @@ export const userController = {
       };
       const isSuccessSignUp = await userModel.createUser(userData);
       if (isSuccessSignUp) {
-        alert('회원에 성공했습니다. 로그인해주세요');
+        alert(massage.success_signin);
         go(PATH.login_page);
         return;
       }
@@ -41,7 +42,7 @@ export const userController = {
       const userData = { name: inputName, phoneNumber: inputPhone };
       const userEmail = await userModel.getUserEmail(userData);
       if (!userEmail) {
-        elemOfShowingIdFound.innerText = '일치하는 값이 없습니다.';
+        elemOfShowingIdFound.innerText = massage.invalid_data;
         elemOfShowingIdFound.classList.add('alert');
         show(elemOfShowingIdFound);
         inputNameToFindIdElem.value = '';

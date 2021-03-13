@@ -2,6 +2,7 @@ import { domController } from './index.mjs';
 import { visualController } from '../../../../utils/visualController.mjs';
 import { customFetch } from '../../../../utils/fetch.mjs';
 import { PATH } from '../../../../config/path.mjs';
+import { massage } from '../../../../config/massage.mjs';
 
 const { show, hide } = visualController;
 const { post } = customFetch;
@@ -84,7 +85,7 @@ export const formChecker = {
       const { result } = await post(PATH.server_url + '/signUp/OverlappingId', dataToPost);
       switch (result.msg) {
         case 'ERROR':
-          document.querySelector('#signup-id').value = '다시 입력해주세요.';
+          document.querySelector('#signup-id').value = massage.repeat;
           break;
 
         case 'AVAILABLE':

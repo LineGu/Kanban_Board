@@ -1,6 +1,7 @@
 import { PATH } from '../../../config/path.mjs';
 import { visualController } from '../../../utils/visualController.mjs';
-import { loginController } from '../../kanbanService/controllers/loginController.mjs';
+import { loginController } from '../../kanban/controllers/loginController.mjs';
+import { massage } from '../../../config/massage.mjs';
 
 const { go } = visualController;
 
@@ -22,7 +23,7 @@ export const loginServiceView = {
   },
 
   showAleadyLogin() {
-    const userWantToLogout = confirm('이미 로그인이 된 계정이 있습니다. 로그아웃하시겠습니까?');
+    const userWantToLogout = confirm(massage.aleady_login);
     if (userWantToLogout) {
       loginController.logout();
       return;
@@ -32,14 +33,14 @@ export const loginServiceView = {
   },
 
   showInvalidId() {
-    alert('일치하는 아이디가 없습니다.');
+    alert(massage.invalid_id);
     const { inputElemForId, inputElemForPw } = loginServiceView;
     loginServiceView.resetValue(inputElemForId, inputElemForPw);
     inputElemForId.focus();
   },
 
   showInvalidPw() {
-    alert('패스워드가 다릅니다.');
+    alert(massage.invalid_pw);
     const { inputElemForPw } = loginServiceView;
     loginServiceView.resetValue(inputElemForPw);
     inputElemForPw.focus();
