@@ -16,4 +16,15 @@ export const authModel = {
       throw err;
     }
   },
+
+  async checkUserToLogin(id, loginMethod) {
+    try {
+      const userData = { id, loginMethod };
+      const { result } = await post(PATH.server_url + '/auth/socialLogin', userData);
+      if (result.msg === 'LOGIN SUCCESS') return true;
+      return false;
+    } catch (err) {
+      throw err;
+    }
+  },
 };

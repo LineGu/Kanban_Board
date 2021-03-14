@@ -3,25 +3,13 @@ import { domController } from '../dom/index.mjs';
 import { formChecker } from '../dom/formChecker.mjs';
 import { visualController } from '../../../../utils/visualController.mjs';
 import { massage } from '../../../../config/massage.mjs';
+import { PATH } from '../../../../config/path.mjs';
 
 const { go, hide, show } = visualController;
 
 export const userController = {
-  async createNewAccount() {
+  async createNewAccount(userData) {
     try {
-      const { inputNameElem, inputIdElem, inputPwElem, inputPhoneNumberElem } = domController;
-      const isValidForm = formChecker.checkValidForm();
-      if (!isValidForm) {
-        alert(massage.invalid_form);
-        return;
-      }
-      const userData = {
-        name: inputNameElem.value,
-        id: inputIdElem.value,
-        pw: inputPwElem.value,
-        phoneNumber: inputPhoneNumberElem.value,
-        loginMethod: 'local',
-      };
       const isSuccessSignUp = await userModel.createUser(userData);
       if (isSuccessSignUp) {
         alert(massage.success_signin);

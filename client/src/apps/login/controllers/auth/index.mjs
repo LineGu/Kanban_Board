@@ -46,16 +46,15 @@ export const authController = {
     const { googleLoginButtonElem } = this;
     googleLoginButtonElem.addEventListener('click', async (event) => {
       event.preventDefault();
-      await googleLoginControll.signIn();
+      await googleLoginControll.logInWithGoogle();
     });
   },
 
   attachLoginWithKakaoHandler() {
     const { kakaoLoginButtonElem } = this;
-    kakaoLoginButtonElem.addEventListener('click', (event) => {
-      kakaoLoginController.init();
-      event.stopPropagation();
+    kakaoLoginButtonElem.addEventListener('click', async (event) => {
       event.preventDefault();
+      await kakaoLoginController.logInWithKakao();
     });
   },
 };

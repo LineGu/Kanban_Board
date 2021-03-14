@@ -6,10 +6,10 @@ const authService = {
   async logInWithLocal(idOfInput, plainPassword) {
     try {
       const userId = await userModel.getUserId(idOfInput);
-      const userData = await userModel.getUserData(userId);
-      if (!userData) {
+      if (!userId) {
         return { resultMsg: 'NO ID' };
       }
+      const userData = await userModel.getUserData(userId);
       const passwordHashed = await makePasswordHashed(plainPassword, userData.salt);
       const isValidPassword = userData.password === passwordHashed;
       if (!isValidPassword) {
