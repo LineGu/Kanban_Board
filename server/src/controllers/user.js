@@ -28,7 +28,7 @@ const userDataController = {
       const userEmail = await userService.getUserEmail(name, phoneNumber);
       response.status(StatusCode.OK).json(createMsg(userEmail));
     } catch (err) {
-      errorHandler(err, response, 'NO ID');
+      errorHandler(err, response);
     }
   },
 

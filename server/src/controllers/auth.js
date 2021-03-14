@@ -15,12 +15,12 @@ const authController = {
     }
     try {
       const { resultMsg, name, id } = await authService.logInWithLocal(idOfInput, plainPassword);
-      const status = resultMsg === 'SUCCESS' ? StatusCode.OK : StatusCode.CLIENT_ERROR;
-      if (status === StatusCode.OK) {
+      if (resultMsg === 'SUCCESS') {
         sessionMaker.createSession(request.session, true, name, id, 'local');
       }
-      response.status(status).json(createMsg(resultMsg));
+      response.status(StatusCode.OK).json(createMsg(resultMsg));
     } catch (err) {
+      console.log(err);
       response.status(StatusCode.SERVER_ERROR).json({ error: err });
     }
   },

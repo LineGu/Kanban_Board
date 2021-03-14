@@ -29,6 +29,10 @@ const userModel = {
     try {
       const queryToFindIdByUserId = `SELECT id FROM users WHERE email="${email}"`;
       const resultOfUserId = await pool.query(queryToFindIdByUserId);
+      const isValidEmail = resultOfUserId[0][0] !== undefined;
+      if (!isValidEmail) {
+        return false;
+      }
       const userId = resultOfUserId[0][0].id;
       return userId;
     } catch (err) {

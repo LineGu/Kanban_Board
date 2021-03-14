@@ -122,7 +122,20 @@ export const domController = {
     const { submitForSignUpElem } = this;
 
     submitForSignUpElem.addEventListener('click', async (event) => {
-      userController.createNewAccount();
+      const { inputNameElem, inputIdElem, inputPwElem, inputPhoneNumberElem } = this;
+      const isValidForm = formChecker.checkValidForm();
+      if (!isValidForm) {
+        alert(massage.invalid_form);
+        return;
+      }
+      const userData = {
+        name: inputNameElem.value,
+        id: inputIdElem.value,
+        pw: inputPwElem.value,
+        phoneNumber: inputPhoneNumberElem.value,
+        loginMethod: 'local',
+      };
+      userController.createNewAccount(userData);
     });
   },
 };

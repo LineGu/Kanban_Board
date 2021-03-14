@@ -53,6 +53,32 @@ const userService = {
       };
 
       await userModel.createUser(userDataToInsert);
+      const userId = await userModel.getUserId(id);
+      const containerFirstContent = {
+        containerIdToAdd: 0,
+        containerName: '할 일',
+        containerIndex: 0,
+      };
+      await containerModel.createContainer(userId, containerFirstContent);
+      const containerSecondContent = {
+        containerIdToAdd: 1,
+        containerName: '진행 중',
+        containerIndex: 1,
+      };
+      await containerModel.createContainer(userId, containerSecondContent);
+      const containerThirdContent = {
+        containerIdToAdd: 2,
+        containerName: '완료',
+        containerIndex: 2,
+      };
+      await containerModel.createContainer(userId, containerThirdContent);
+      const cardContents = {
+        header: '해야할 일을 입력해보세요!',
+        body: '구체적인 내용을 입력하세요! 그 후에 이 카드를 드래그해서 진행 중으로 옮겨보세요~',
+        footer: '사용자님의 닉네임이 들어갑니다!',
+        cardIndex: 0,
+      };
+      await cardModel.createCard(userId, 0, 0, cardContents);
     } catch (err) {
       throw err;
     }
@@ -85,7 +111,6 @@ const userService = {
         const containerId = container.id;
         const cardsOfContainer = await cardModel.getCardData(userId, containerId, 'all');
         container.cards = cardsOfContainer;
-        //cardContainers.push(container);
       }
       const userDataForInit = { user: userData, card: containers };
       return userDataForInit;
