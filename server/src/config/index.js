@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 
-const envFound = dotenv.config();
+const envFound = dotenv.config({ path: '/home/linegu/kanban/Kanban_board/.env' });
 if (envFound.error) {
   throw new Error("Couldn't find .env file");
 }
