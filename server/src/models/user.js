@@ -6,7 +6,7 @@ const userModel = {
     try {
       const queryToFindAccoutByID = `SELECT * FROM users WHERE id='${userId}'`;
       const resultOfAccount = await pool.query(queryToFindAccoutByID);
-      const userData = resultOfAccount[0][0] ?? false;
+      const userData = resultOfAccount[0].length === 0;
       return userData;
     } catch (err) {
       throw err;
