@@ -11,6 +11,7 @@ export const kakaoLoginController = {
       const isLogined = !!Kakao.Auth.getAccessToken();
       if (isLogined) await Kakao.Auth.logout();
     } catch (err) {
+      //loginServiceView.goLoginPage();
       console.log(err);
     }
   },

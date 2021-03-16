@@ -436,10 +436,6 @@ export const cardContainersView = {
     });
   },
 
-  loadIndexHTMLAfterLogin() {
-    window.location.href = 'http://localhost:5500/client/src/index.html';
-  },
-
   resetValue(elem) {
     elem.value = '';
   },

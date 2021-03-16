@@ -22,6 +22,10 @@ export const loginServiceView = {
     go(PATH.main_page);
   },
 
+  goLoginPage() {
+    go(PATH.login_page);
+  },
+
   showAleadyLogin() {
     const userWantToLogout = confirm(massage.aleady_login);
     if (userWantToLogout) {
