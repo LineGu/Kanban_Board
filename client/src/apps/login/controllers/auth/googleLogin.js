@@ -3,6 +3,7 @@ import { authModel } from '../../models/auth.mjs';
 import { loginServiceView } from '../../views/index.mjs';
 import { massage } from '../../../../config/massage.mjs';
 import { userController } from '../user/index.mjs';
+import { social } from '../../../../config/social.mjs';
 
 export const googleLoginControll = {
   async init() {
