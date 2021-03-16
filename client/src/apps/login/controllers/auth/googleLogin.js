@@ -9,6 +9,7 @@ export const googleLoginControll = {
     try {
       await gapi.load('auth2', () => this.controllAfterLoad());
     } catch (err) {
+      //loginServiceView.goLoginPage();
       console.log(err);
     }
   },
