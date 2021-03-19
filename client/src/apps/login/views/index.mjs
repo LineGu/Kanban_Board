@@ -12,7 +12,6 @@ export const loginServiceView = {
   },
 
   resetValue(...elems) {
-    console.log(elems);
     elems.forEach((elem) => {
       elem.value = '';
     });

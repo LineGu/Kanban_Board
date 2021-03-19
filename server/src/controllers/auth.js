@@ -20,7 +20,6 @@ const authController = {
       }
       response.status(StatusCode.OK).json(createMsg(resultMsg));
     } catch (err) {
-      console.log(err);
       response.status(StatusCode.SERVER_ERROR).json({ error: err });
     }
   },

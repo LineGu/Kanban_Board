@@ -59,21 +59,18 @@ const userService = {
         containerName: '할 일',
         containerIndex: 0,
       };
-      console.log(1);
       await containerModel.createContainer(userId, containerFirstContent);
       const containerSecondContent = {
         containerIdToAdd: 1,
         containerName: '진행 중',
         containerIndex: 1,
       };
-      console.log(2);
       await containerModel.createContainer(userId, containerSecondContent);
       const containerThirdContent = {
         containerIdToAdd: 2,
         containerName: '완료',
         containerIndex: 2,
       };
-      console.log(3);
       await containerModel.createContainer(userId, containerThirdContent);
       const cardContents = {
         header: '해야할 일을 입력해보세요!',
@@ -81,10 +78,8 @@ const userService = {
         footer: '사용자님의 닉네임이 들어갑니다!',
         cardIndex: 0,
       };
-      console.log(4);
       await cardModel.createCard(userId, 0, 0, cardContents);
     } catch (err) {
-      console.log(err);
       throw err;
     }
   },
@@ -127,6 +122,5 @@ const userService = {
     }
   },
 };
-const userData = { name: 'dd', id: 'dd', pw: 'dd', phoneNumber: 'dd', loginMethod: 'dd' };
-userService.createUser(userData);
+
 module.exports = userService;
