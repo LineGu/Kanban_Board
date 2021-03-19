@@ -87,6 +87,9 @@ const userService = {
   async getUserData(userEmail) {
     try {
       const userId = await userModel.getUserId(userEmail);
+      if (!userId) {
+        return false;
+      }
       const userData = await userModel.getUserData(userId);
       return userData;
     } catch (err) {
