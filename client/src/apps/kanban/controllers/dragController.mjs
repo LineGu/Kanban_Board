@@ -271,7 +271,6 @@ export const dragController = {
           indexOfDraggedContainerStart,
           indexOfDraggedContainer,
         );
-        console.log('오른쪽');
       });
     });
 
@@ -322,7 +321,6 @@ export const dragController = {
           indexOfDraggedContainerStart,
           indexOfDraggedContainer,
         );
-        console.log('왼쪽');
       });
     });
   },
@@ -420,14 +418,12 @@ export const dragController = {
           const indexOfDraggedContainer = cardContainerModel.findContainerIndexById(
             idOfDraggedContainer,
           );
-          console.log(idOfDraggedContainer, indexOfDraggedContainerStart, indexOfDraggedContainer);
 
           await DBcontroller.moveContainer(
             idOfDraggedContainer,
             indexOfDraggedContainerStart,
             indexOfDraggedContainer,
           );
-          console.log('전체');
           return;
         }
 
