@@ -7,9 +7,9 @@ const { createMsg } = serverMassage;
 
 const userDataController = {
   async getUserDataForInit(request, response) {
-    const { isLogined } = request.session;
-    const isLogined = isLogined === undefined ? false : true;
-    if (!isLogined) {
+    const { isLogined, userId } = request.session;
+    const isVaildLogin = isLogined === undefined ? false : true;
+    if (!isVaildLogin) {
       response.status(StatusCode.CLIENT_ERROR).json();
       return;
     }
