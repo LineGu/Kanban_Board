@@ -36,14 +36,14 @@ export const loginServiceView = {
   },
 
   showInvalidId() {
-    alert(massage.invaild_id);
+    alert(massage.invalid_id);
     const { inputElemForId, inputElemForPw } = loginServiceView;
     loginServiceView.resetValue(inputElemForId, inputElemForPw);
     inputElemForId.focus();
   },
 
   showInvalidPw() {
-    alert(massage.invaild_pw);
+    alert(massage.invalid_pw);
     const { inputElemForPw } = loginServiceView;
     loginServiceView.resetValue(inputElemForPw);
     inputElemForPw.focus();
