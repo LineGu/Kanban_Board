@@ -1,6 +1,6 @@
 export const massage = {
   aleady_login: '이미 로그인이 된 계정이 있습니다. 로그아웃하시겠습니까?',
-  invalid_id: '일치하는 아이디가 없습니다.',
+  invaild_pw: '일치하는 아이디가 없습니다.',
   invaild_pw: '패스워드가 다릅니다.',
   repeat: '다시 입력해주세요.',
   invalid_data: '일치하는 정보가 없습니다.',
