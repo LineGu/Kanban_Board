@@ -83,6 +83,10 @@ export const formChecker = {
       }
       const dataToPost = { id: inputId };
       const { result } = await post(PATH.server_url + '/signUp/OverlappingId', dataToPost);
+      alert(result);
+      hide(showingValidId);
+      hide(showingOverlappedId);
+      hide(showingInvalidId);
       switch (result.msg) {
         case 'ERROR':
           document.querySelector('#signup-id').value = massage.repeat;
