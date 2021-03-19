@@ -7,6 +7,7 @@ const startServer = () => {
   const { SERVER_PORT } = process.env;
 
   initializer(app);
+  app.set('trust proxy', 1);
 
   app.listen(SERVER_PORT, () => {});
 };
