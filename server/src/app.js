@@ -5,8 +5,9 @@ const fs = require('fs');
 require('dotenv').config();
 
 const sslOptions = {
-  key: fs.readFileSync('/etc/letsencrypt/live/www.kanban.kro.kr/fullchain.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/www.kanban.kro.kr/privkey.pem'),
+  ca: fs.readFileSync('/etc/letsencrypt/live/www.kanban.kro.kr/fullchain.pem'),
+  key: fs.readFileSync('/etc/letsencrypt/live/www.kanban.kro.kr/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/www.kanban.kro.kr/cert.pem'),
 };
 
 const startServer = () => {
