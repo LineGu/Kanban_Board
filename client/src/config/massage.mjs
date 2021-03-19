@@ -9,4 +9,5 @@ export const massage = {
   invalid_form: '양식을 올바르게 입력하세요.',
   success_signin: '회원에 성공했습니다. 로그인해주세요',
   google_signup: '구글 아이디로 회원가입 하시겠습니까?',
+  kakao_signup: '카카오 아이디로 회원가입 하시겠습니까?',
 };
