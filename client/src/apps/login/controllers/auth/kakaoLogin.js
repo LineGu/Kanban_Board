@@ -47,15 +47,19 @@ export const kakaoLoginController = {
   },
 
   async loginForUser(userData) {
-    const { id: userId } = userData;
-    const isVaildUser = await authModel.checkUserToLogin(userId, 'kakao');
-    if (isVaildUser) {
-      loginServiceView.goMainPage();
-      return;
-    }
-    const isPositiveToSignUp = confirm(massage.google_signup);
-    if (isPositiveToSignUp) {
-      await this.signUpForKakao(userData);
+    try {
+      const { id: userId } = userData;
+      const isVaildUser = await authModel.checkUserToLogin(userId, 'kakao');
+      if (isVaildUser) {
+        loginServiceView.goMainPage();
+        return;
+      }
+      const isPositiveToSignUp = confirm(massage.kakao_signup);
+      if (isPositiveToSignUp) {
+        await this.signUpForKakao(userData);
+      }
+    } catch (err) {
+      console.log(err);
     }
   },
 
@@ -66,6 +70,10 @@ export const kakaoLoginController = {
   },
 
   async signUpForKakao(userData) {
-    await userController.createNewAccount(userData);
+    try {
+      await userController.createNewAccount(userData);
+    } catch (err) {
+      console.log(err);
+    }
   },
 };

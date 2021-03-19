@@ -4,6 +4,5 @@ export const social = {
     fetch_basic_profile: true,
     scope: 'profile',
   },
-
   kakaoClientId: 'a5b8f489bc24703b5d6155700b42e559',
 };
