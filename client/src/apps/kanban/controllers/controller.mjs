@@ -123,13 +123,15 @@ export const CardContainerController = {
     window.addEventListener('keydown', (event) => {
       if (window.event.keyCode === 13 && !modalOfAddingContainer.classList.contains('hidden')) {
         confirmButtonElem.click();
+        return;
       }
 
-      document.querySelectorAll('.add-card-box').forEach((elem) => {
-        if (window.event.keyCode === 13 && !elem.classList.contains('hidden')) {
-          elem.querySelector('.confirm-button-add').click();
-        }
-      });
+      // document.querySelectorAll('.add-card-box').forEach((elem) => {
+      //   if (window.event.keyCode === 13 && !elem.classList.contains('hidden')) {
+      //     elem.querySelector('.confirm-button-add').click();
+      //     return;
+      //   }
+      // });
     });
   },
 
