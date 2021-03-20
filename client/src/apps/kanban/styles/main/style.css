@@ -1055,14 +1055,14 @@ h1 {
   animation-timing-function: ease-out;
 }
 
-.menu-modal > .div {
+.menu-modal > div {
   display: flex;
   align-items: center;
   height: 10%;
   padding-left: 10%;
 }
 
-.menu-modal > .div:hover {
+.menu-modal > div:hover {
   background-color: royalblue;
   cursor: pointer;
 }
