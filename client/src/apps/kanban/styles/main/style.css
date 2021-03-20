@@ -449,6 +449,7 @@ h1 {
   background-color: #6ab870;
   border: 1px solid #78bb7f;
   outline: none;
+  cursor: pointer;
 }
 
 [class^='confirm-button']:focus {
@@ -585,6 +586,7 @@ h1 {
 }
 
 .add-card-box > .confirm-card > .confirm-button-cancle:hover {
+  cursor: pointer;
   background-color: #cad4dd;
 }
 
@@ -713,6 +715,7 @@ h1 {
 }
 
 .edit-card-box > .confirm-card > .confirm-button-cancle-edit:hover {
+  cursor: pointer;
   background-color: #cad4dd;
 }
 
@@ -1052,6 +1055,18 @@ h1 {
   animation-timing-function: ease-out;
 }
 
+.menu-modal > .div {
+  display: flex;
+  align-items: center;
+  height: 10%;
+  padding-left: 10%;
+}
+
+.menu-modal > .div:hover {
+  background-color: royalblue;
+  cursor: pointer;
+}
+
 .menu-modal > .top {
   display: flex;
   align-items: center;
@@ -1064,19 +1079,7 @@ h1 {
   cursor: pointer;
 }
 
-.menu-modal > .delete-container {
-  display: flex;
-  align-items: center;
-  height: 10%;
-  padding-left: 10%;
-}
-
 .menu-modal > .top:hover {
-  background-color: royalblue;
-  cursor: pointer;
-}
-
-.menu-modal > .delete-container:hover {
   background-color: royalblue;
   cursor: pointer;
 }
