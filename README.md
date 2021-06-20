@@ -46,3 +46,35 @@ Card가 많아지더라도 바로 검색해서 Card를 단숨에 찾을 수 있�
 <img width="90%" src="https://imgur.com/cOpLxOm.png">
 
 > 프로젝트 관리하는 과정이 궁금하시다면 다음 링크를 통해 동영상을 확인해주세요!
+
+<br/>
+<br/>
+<br/>
+
+## 💻 기술 소개
+
+
+### Front-End
+
+| Spec | <img width= 50 src="https://imgur.com/Q4hDZBp.png"> |
+| :--: | :--: | 
+| **Description** | JavaScript | 
+
+</br>
+
+### Back-End
+| Spec | <img width= 50 src="https://imgur.com/Q4hDZBp.png"> | <img width= 50 src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1597622806/noticon/avedhz3pvaij65k3ztar.png"> |<img width= 50 src="https://i.imgur.com/1lgBkrb.png"> |
+| :--: | :--: | :--: | :--: |
+| **Description** | JavaScript | Express | PM2 |
+
+</br>
+
+
+### Infrastructure
+| Spec |   <img width= 50 src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566798146/noticon/lku5cppzh8r7awwsmmko.png"> | <img width= 50 src="https://cdn-images-1.medium.com/max/1200/1*r5KdIfHXaz7UQM4FmZ0D5A.png">|
+| :--: | :--: | :--: |
+| **Description** | Nginx | NCP |
+
+<br/>
+<br/>
+
